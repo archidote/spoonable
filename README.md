@@ -103,6 +103,7 @@ And then, you can call the spoonable command from everywhere.
 
 ```
 cd ~ 
+cd .local/share/applications/
 nano spoonable.desktop
 ```
 
