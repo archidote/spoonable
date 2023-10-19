@@ -1,0 +1,8 @@
+version: "3.5"
+services:
+    spoonable-404-to-hero: 
+        container_name: spoonable-404-to-hero
+        image: spoonable/404-to-hero
+        restart: "no"
+        ports: 
+          - 8081:8080

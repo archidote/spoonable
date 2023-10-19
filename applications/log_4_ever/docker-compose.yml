@@ -1,0 +1,8 @@
+version: "3.5"
+services:
+    log4j-vulnerable-web-app: 
+        container_name: spoonable-log4shell-vulnerable-web-app
+        image: spoonable/log_4_ever
+        restart: "no"
+        ports:
+          - 8083:8080

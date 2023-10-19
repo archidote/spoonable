@@ -1,0 +1,8 @@
+version: "3.5"
+services:
+    docker-container-escaping: 
+        container_name: spoonable-container-escaping
+        image: ubuntu
+        restart: "no"
+        command: ["sleep","infinity"]
+        privileged: true

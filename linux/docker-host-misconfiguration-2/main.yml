@@ -1,0 +1,15 @@
+- hosts: all
+  become: 'yes'
+  tasks:
+    - name: Install required system package
+      apt:
+        pkg:
+        - docker.io
+        update_cache: true
+        cache_valid_time: 60
+    - name : Docker custom setup 
+      shell: |
+        useradd -s /bin/bash -p $(openssl passwd -1 spoonable) spoonable 
+        sed -i 's/ExecStart=\/usr\/bin\/dockerd -H fd:\/\/ --containerd=\/run\/containerd\/containerd.sock/ExecStart=\/usr\/bin\/dockerd -H fd:\/\/ -H tcp:\/\/0.0.0.0:2222/g' /lib/systemd/system/docker.service
+        systemctl daemon-reload
+        systemctl restart docker

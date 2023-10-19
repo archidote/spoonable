@@ -1,0 +1,30 @@
+version: "3.5"
+services:
+    spoonable_mariadb-glpi: 
+        container_name: spoonable-glpi-db
+        image: spoonable/glpi-db
+        restart: "no"
+        environment: 
+          MYSQL_DATABASE: glpi
+          MYSQL_USER: glpi-user 
+          MYSQL_PASSWORD: glpi-pass 
+          MYSQL_RANDOM_ROOT_PASSWORD: 1 
+        ports: 
+          - 3306:3306
+    spooble_glpi: 
+        container_name: spoonable-glpi
+        image: spoonable/glpi:latest
+        restart: on-failure
+        environment: 
+          GLPI_LANG: pt_BR
+          MARIADB_HOST: spoonable_mariadb-glpi
+          MARIADB_PORT: 3306
+          MARIADB_DATABASE: glpi
+          MARIADB_USER: glpi-user
+          MARIADB_PASSWORD: glpi-pass
+          VERSION: "9.5.6"
+          PLUGINS: "all"
+        depends_on: 
+          - spoonable_mariadb-glpi
+        ports: 
+          - 8082:80

@@ -1,0 +1,15 @@
+- hosts: all
+  become: 'yes'
+  tasks:
+    - name: Install required system package
+      apt:
+        pkg:
+        - docker.io
+        update_cache: true
+        cache_valid_time: 60
+    - name : Registry setuping...
+      shell: |
+        docker pull spoonable/gitalpha
+        docker run -d -p 5000:5000 --restart=always --name registry2 registry:2
+        docker tag spoonable/gitalpha localhost:5000/gitalpha
+        docker push localhost:5000/gitalpha

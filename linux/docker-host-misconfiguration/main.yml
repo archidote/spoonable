@@ -1,0 +1,13 @@
+- hosts: all
+  become: 'yes'
+  tasks:
+    - name: Install required system packages
+      apt:
+        pkg:
+        - docker.io
+        update_cache: true
+        cache_valid_time: 60
+    - name : some extra config 
+      shell: |
+        useradd -s /bin/bash -p $(openssl passwd -1 spoonable) spoonable
+        usermod -aG docker spoonable

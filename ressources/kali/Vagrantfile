@@ -1,0 +1,11 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+sensible_defaults_vagrantfile = File.expand_path("../../ressources/Vagrantfile.global.config", File.dirname(__FILE__))
+load sensible_defaults_vagrantfile
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "kalilinux/rolling"
+    config.vm.provider "virtualbox" do |vb|
+      vb.name = "Kalilinux"
+    end
+  end 

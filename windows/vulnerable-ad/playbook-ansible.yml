@@ -1,0 +1,29 @@
+- name: Configure role(s) on a Windows server instance
+  hosts: all
+  become_method: runas
+  tasks: 
+  
+  - name: Run powershell commands to prepare the DC 
+    ansible.windows.win_powershell:
+      script: |
+        Add-WindowsFeature AD-Domain-Services
+        Set-TimeZone -Name "Romance Standard Time"
+
+  - name: Change the hostname 
+    ansible.windows.win_hostname:
+      name: dc
+    register: hostname
+  
+  - name: Reboot
+    ansible.windows.win_reboot:
+    when: hostname.reboot_required
+
+  - name: Install ADDS role and configure it with minimal option
+    ansible.windows.win_domain:
+      dns_domain_name: spoonable.local
+      safe_mode_password: spoonable123!
+    register: domain_install
+  
+  - name: Reboot after promotion
+    ansible.windows.win_reboot:
+    when: domain_install.reboot_required

@@ -1,0 +1,4 @@
+Tested and Exploited -> 31/05/2023
+
+SSH pv/pub keys auth method is only accepted on this VM. Use the private Key of vagrant 
+- https://github.com/hashicorp/vagrant/blob/main/keys/vagrant

@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+sensible_defaults_vagrantfile = File.expand_path("../../ressources/Vagrantfile.global.config", File.dirname(__FILE__))
+load sensible_defaults_vagrantfile
+
+vagrantfile_dir = File.expand_path(File.dirname(__FILE__))
+folder_name = File.basename(vagrantfile_dir)
+vm_name = "spoonable-"
+vm_name += folder_name
+
+Vagrant.configure(2) do |config|
+  config.vm.define vm_name do |virtualmachine|
+    virtualmachine.vm.box = "spoonable/vulnerable-ubuntu-20.04.1"
+    virtualmachine.vm.box_version = "1.0.1"
+    virtualmachine.vm.hostname = vm_name
+    config.vm.provider "virtualbox" do |hypervisor|
+      hypervisor.name = vm_name
+    end 
+  end
+end

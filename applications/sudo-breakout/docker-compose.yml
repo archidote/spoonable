@@ -1,0 +1,7 @@
+version: "3.5"
+services:
+    spoonable-sudo-breakout-app: 
+        container_name: spoonable-sudo-breakout
+        restart: "no"
+        command: ["sleep","infinity"]
+        image: spoonable/sudo-may-be-vulnerable
