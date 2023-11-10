@@ -181,31 +181,33 @@ So here the correct path would be: <code> linux/pwnkit/README.md</code> because 
 
 ![localImage](./ressources/images/start-the-exploitation.png)
 
-> Post Exploitation only : If you accidentally close your terminal with an SSH session connected to a VM. Here's how to proceed, to reconnect to the target using SSH. <br>
-> <code>user@ubuntu:~$ cd {env}/{vuln}/ # Generic example </code> <br>
+> Post Exploitation only : If you accidentally close your terminal with an SSH session connected to a VM. Here's how to proceed, to reconnect to the target using SSH. For example : <br>
 > <code>user@ubuntu:~$ cd linux/12years/ </code> <br>
 > <code>user@ubuntu:~$ vagrant ssh </code> <br>
 > <code>vagrant@spoonable-12years:~$ su spoonable  </code> <br>
 
-# Advices 
+# Advices 
 
 - Spoonable only needs the internet to retrieve large vulnerable artifacts. Make sure you are on a good wired/wireless network, so you don't lose too much time to start your tests. 
   
 - If you want to take notes about the differents challenge, please use an other directory than spoonable/ in order to avoid problem id you update it. 
 -  Spoonable doesn't need sudo by défault (only when he manage vulnerable <b>VM</b>). However, when using vulnerable containers, sudo pre-command becomes necessary. 
 
-# Default credentials 
-
-- Linux Based Machines : 
-  - id : spoonable
-  - password : spoonable 
-
-- Windows Bases Machines : 
-  - Normal AD user : spoonable 
-  - password : spoonable123!
-
 # Recommandation 
 
 Using the embedded version of kalilinux in spoonable is not mandatory. You can use your own. However, it must be able to communicate with the spoonable lab VMs. (add the vboxnet0 network card). 
 
-Otherwise, you can use [exegol](https://github.com/ThePorgs/Exegol) which is a fully featured hacking environment container (docker<3)
+Otherwise, you can use [exegol](https://github.com/ThePorgs/Exegol) which is a fully featured hacking environment container.
+
+# Others similar projects 
+
+- Windows 
+  - [BreakingbAD](https://github.com/KenjiEndo15/breakingbAD)
+  - [GOAD](https://github.com/Orange-Cyberdefense/GOAD)
+- Web 
+  - [Port Swigger Academy](https://portswigger.net/web-security)
+  - [DVWA](https://github.com/digininja/DVWA)
+  - [Juice-Shop](https://github.com/juice-shop/juice-shop)
+  - [VAmPI](https://github.com/erev0s/VAmPI)
+- Linux 
+  - ?
