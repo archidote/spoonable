@@ -182,10 +182,10 @@ So here the correct path would be: <code> linux/pwnkit/README.md</code> because 
 ![localImage](./ressources/images/start-the-exploitation.png)
 
 > Post Exploitation only : If you accidentally close your terminal with an SSH session connected to a VM. Here's how to proceed, to reconnect to the target using SSH. For example : <br>
-> <code>user@ubuntu:~$ cd linux/12years/ </code> <br>
-> <code>user@ubuntu:~$ vagrant ssh </code> <br>
-> <code>vagrant@spoonable-12years:~$ su spoonable  </code> <br>
-
+> ```
+> user@ubuntu:~$ cd linux/12years/
+> user@ubuntu:~$ vagrant ssh
+> vagrant@spoonable-12years:~$ su spoonable 
 # Advices 
 
 - Spoonable only needs the internet to retrieve large vulnerable artifacts. Make sure you are on a good wired/wireless network, so you don't lose too much time to start your tests. 
